@@ -1,0 +1,64 @@
+Forecast for {{ city }}
+<hr>
+Days: <a href="#/forecast/2" ng-class="{'bg-primary' : days === '2'}">2</a>  |  <a href="#/forecast/5" ng-class="{'bg-primary' : days === '5'}">5</a>  |  <a href="#/forecast/7" ng-class="{'bg-primary' : days === '7'}">7</a>
+<hr>
+
+<div class="forecast">
+   <div class="row">
+       <div class="col-md-4">
+          <h4>Day</h4>
+       </div>
+       <div class="col-md-2">
+          <h4>Humidity</h4>
+       </div>
+       <div class="col-md-2">
+          <h4>Wind Speed</h4>
+       </div>
+       <div class="col-md-2">
+           <h4>Hi  |  Low</h4>
+       </div>
+        <div class="col-md-2">
+          <h4>Forecast</h4>
+        </div>
+
+       </div>
+</div>
+<hr>
+<div ng-repeat="weather in weatherResult.list" class="forecast">
+   <div class="row">
+       <div class="col-md-4">
+          <h4>{{ convertToDate(weather.dt) | date:"EEEE MMM dd, yyyy" }}</h4>
+       </div>
+       <div class="col-md-2">
+          <h4>{{ weather.humidity }}%</h4>
+       </div>
+       <div class="col-md-2">
+          <h4>{{ weather.speed }}mph</h4>
+       </div>
+       <div class="col-md-2">
+           <h4><strong>{{ convertToF(weather.temp.max) }}&deg;F</strong>  |  {{ convertToF(weather.temp.min) }}&deg;F</h4>
+       </div>
+        <div class="col-md-2" ng-repeat="type in weather.weather">
+          <img class="weatherType" ng-src="./images/{{type.main}}.png" alt="{{ type.main }}" title="{{ type.main }}">
+        </div>
+
+       </div>
+   </div>
+
+
+<!--
+<div ng-repeat="weather in weatherResult.list">
+   <div class="row">
+       <div class="col-md-1">
+          <div class="panel panel-default">
+              <div class="panel-heading">
+                  <h6>{{ convertToDate(weather.dt) | date:"EEE MMM dd, yyyy" }}</h6>
+              </div>
+              <div class="panel-body" ng-repeat="type in weather.weather">
+                  <h4><strong>{{ convertToF(weather.temp.max) }}&deg;F</strong>  |  {{ convertToF(weather.temp.min) }}&deg;F</h4>
+                  <img class="weatherType" align="right" ng-src="./images/{{type.main}}.png" alt="{{ type.main }}">
+              </div>
+          </div>
+       </div>
+   </div>
+</div>-->
