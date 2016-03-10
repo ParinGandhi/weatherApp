@@ -44,21 +44,3 @@ Days: <a href="#/forecast/2" ng-class="{'bg-primary' : days === '2'}">2</a>  |  
 
        </div>
    </div>
-
-
-<!--
-<div ng-repeat="weather in weatherResult.list">
-   <div class="row">
-       <div class="col-md-1">
-          <div class="panel panel-default">
-              <div class="panel-heading">
-                  <h6>{{ convertToDate(weather.dt) | date:"EEE MMM dd, yyyy" }}</h6>
-              </div>
-              <div class="panel-body" ng-repeat="type in weather.weather">
-                  <h4><strong>{{ convertToF(weather.temp.max) }}&deg;F</strong>  |  {{ convertToF(weather.temp.min) }}&deg;F</h4>
-                  <img class="weatherType" align="right" ng-src="./images/{{type.main}}.png" alt="{{ type.main }}">
-              </div>
-          </div>
-       </div>
-   </div>
-</div>-->
